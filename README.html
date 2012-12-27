@@ -36,13 +36,13 @@
 <li>Set the <strong><code>ANDROID_NDK_ROOT</code></strong> variable to the directory where you have installed the NDK in Eclipse->Preferences->Run/Debug->String substitution. This step should be done any time you change your workspace.</li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120511-f132g6p21ycs24mihdcyxy81dy.medium.jpg" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_sdk_root.png" alt="center" title=""></p>
 
 <ul>
 <li>Import an <strong>existing project into Workspace</strong> into your workspace and select the <strong>iqe-android-sdk</strong> folder.</li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120816-gyshwsxb6krsumecwdniwssnd9.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/import_projects.png" alt="center" title=""></p>
 
 <ul>
 <li>For each project, in the package explorer right-click your android project and select <strong>Properties</strong>.</li>
@@ -50,7 +50,7 @@
 <li>Pick a version above API level 11. Note that the SDK works for any API level 8 and above, but in order to follow Android&#8217;s design guidelines, the demo app only works for any API level 11 and above.</li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120817-bwn3b8p8bw6tybky8cwpejuw7.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_properties.png" alt="center" title=""></p>
 
 <ul>
 <li>When the dialog closes, click Apply in the <strong>Properties</strong> window.</li>
@@ -66,7 +66,7 @@
 <li><strong>KEY</strong>, <strong>SECRET</strong>: your API key and secret obtained after you&#8217;ve signed up for VisionIQ (it takes 30 seconds, at most). You can find both keys in the <a href="http://www.iqengines.com/dashboard/settings/">developer center</a> </li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120515-c7418drprn2papjpm3w9t4iq5s.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/api_key.png" alt="center" title=""></p>
 
 <ul>
 <li><strong>search engines</strong> :
@@ -86,7 +86,7 @@
   <p>With those options you can build an app using exclusively either <em>remote</em> search, <em>local</em> search or <em>barcode</em> search. Your app can also use any combination of the three.</p>
 </blockquote>
 
-<p><img src="http://img.skitch.com/20120816-p83pdwnagtgy2x8mkxyk6trqpy.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/demo_settings.png" alt="center" title=""></p>
 
 <p>You are now ready to try the demo-app. launch the application on your own Android device and try VisionIQ.</p>
 
@@ -117,7 +117,7 @@ With this interface uploading your data is fast and effortless. </p>
 <li>Set Metadata (optional).</li>
 </ol>
 
-<p><img src="http://img.skitch.com/20120515-x9urp6ubcq5e6dqprerscdptk7.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/upload_images_fulfilled.png" alt="center" title=""></p>
 
 <blockquote>
   <p>The more pictures you provide for an object, the more likely it will be recognized.</p>
@@ -127,7 +127,7 @@ With this interface uploading your data is fast and effortless. </p>
 
 <p>The local dataset is hosted directly on the mobile device, and the recognition algorithms are also performed entirely locally. It is not possible at the moment for you to directly generate the image signatures that are necessary for recognition (this &#8220;local training&#8221; feature is coming soon!). To receive the iqedata folder that corresponds to your own set of images, first train VisionIQ server, and then contact us at <a href="&#109;ai&#x6C;&#116;&#x6F;:&#115;&#117;&#112;&#112;&#x6F;&#x72;&#x74;&#64;&#105;&#x71;&#x65;&#110;&#x67;&#105;&#x6E;&#101;&#x73;&#x2E;&#99;om">&#115;&#117;&#112;&#112;&#x6F;&#x72;&#x74;&#64;&#105;&#x71;&#x65;&#110;&#x67;&#105;&#x6E;&#101;&#x73;&#x2E;&#99;om</a>. Once you have received the iqedata folder back, put it in the &#8220;assets&#8221; folder as shown in the example below.</p>
 
-<p><img src="http://img.skitch.com/20120816-bp7shu4915iaghutu167yqg4rr.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/assets.png" alt="center" title=""></p>
 
 <h3 id="iq_engines_dataset_and_crowdsourcing">IQ Engines dataset and crowdsourcing</h3>
 
@@ -139,13 +139,13 @@ With this interface uploading your data is fast and effortless. </p>
 
 <p>The <em>iqengines-sdk-barcode</em> project contains the source code. All the settings are in the <em>iqengines-sdk</em> project, in the <em>com.iqengines.sdk.barcode</em> package. In there, you can change the barcode formats you want to recognize or the way your app handle the results</p>
 
-<p><img src="http://img.skitch.com/20120816-gjyfncbsn8sngxh44fk84atawk.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/barcode_formats.png" alt="center" title=""></p>
 
 <h2 id="configure_visioniq_server">Configure VisionIQ server</h2>
 
 <p>Crowdsourcing and <em>local</em> search are not required for every app. VisionIQ allows you to choose either <em>remote</em>, <em>local</em> or <em>barcode</em> search as well as any combination of the three. You may also choose in which dataset you want to perform the search. This flexibility is available through the <a href="http://www.iqengines.com/dashboard/settings/">settings</a> on the developer dashboard.</p>
 
-<p><img src="http://img.skitch.com/20120815-k7ei9jp88km7a6fmrennmaniec.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/web_site_settings.png" alt="center" title=""></p>
 
 <p>For example, an app performing only remote search in the private dataset would have :</p>
 
@@ -159,7 +159,7 @@ With this interface uploading your data is fast and effortless. </p>
 <li>In the dashboard settings</li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120515-dunphgqy2mfrcqqud7kxs4ibis.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/private_dataset_settings.png" alt="center" title=""></p>
 
 <h2 id="tips_for_successful_and_fast_search">Tips for successful and fast search</h2>
 
@@ -190,7 +190,7 @@ With this interface uploading your data is fast and effortless. </p>
 <li>Click Add to open the Project Selection dialog.</li>
 </ul>
 
-<p><img src="http://img.skitch.com/20120511-dwc7rj7rjy6ajjjpntbayyrghi.png" alt="center" title=""></p>
+<p><img src="http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_library.png" alt="center" title=""></p>
 
 <ul>
 <li>From the list of available library projects, select the <strong>iqengines-sdk</strong> project and click OK.</li>

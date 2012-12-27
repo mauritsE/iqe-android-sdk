@@ -40,17 +40,17 @@ Installation
 * Install the Android [NDK](http://developer.android.com/sdk/ndk/index.html)
 * Set the **`ANDROID_NDK_ROOT`** variable to the directory where you have installed the NDK in Eclipse->Preferences->Run/Debug->String substitution. This step should be done any time you change your workspace.
 
-![center](http://img.skitch.com/20120511-f132g6p21ycs24mihdcyxy81dy.medium.jpg)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_sdk_root.png)
 
 * Import an **existing project into Workspace** into your workspace and select the **iqe-android-sdk** folder.
 
-![center](http://img.skitch.com/20120816-gyshwsxb6krsumecwdniwssnd9.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/import_projects.png)
 
 * For each project, in the package explorer right-click your android project and select **Properties**.
 * In the **Properties** window, select the **Android** properties group at left and locate the **Project Build Target** window on the right.
 * Pick a version above API level 11. Note that the SDK works for any API level 8 and above, but in order to follow Android's design guidelines, the demo app only works for any API level 11 and above.
 
-![center](http://img.skitch.com/20120817-bwn3b8p8bw6tybky8cwpejuw7.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_properties.png)
 
 * When the dialog closes, click Apply in the **Properties** window.
 * Click OK to close the **Properties** window.
@@ -63,7 +63,7 @@ When you import the VisionIQ SDK into an app, you can configure it by setting th
 
 * **KEY**, **SECRET**: your API key and secret obtained after you've signed up for VisionIQ (it takes 30 seconds, at most). You can find both keys in the [developer center](http://www.iqengines.com/dashboard/settings/) 
 
-![center](http://img.skitch.com/20120515-c7418drprn2papjpm3w9t4iq5s.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/api_key.png)
 
 * **search engines** :
     * **`SEARCH_OBJECT_REMOTE`**: if set to **true**, *remote* search is enabled.
@@ -75,7 +75,7 @@ When you import the VisionIQ SDK into an app, you can configure it by setting th
 	
 > With those options you can build an app using exclusively either *remote* search, *local* search or *barcode* search. Your app can also use any combination of the three.
 
-![center](http://img.skitch.com/20120816-p83pdwnagtgy2x8mkxyk6trqpy.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/demo_settings.png)
 
 You are now ready to try the demo-app. launch the application on your own Android device and try VisionIQ.
 
@@ -105,7 +105,7 @@ Your images are grouped into objects. There are three steps to build a new objec
 2. Label the set of images you have selected with a name or a phrase
 3. Set Metadata (optional).
 
-![center](http://img.skitch.com/20120515-x9urp6ubcq5e6dqprerscdptk7.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/upload_images_fulfilled.png)
 
 > The more pictures you provide for an object, the more likely it will be recognized.
 
@@ -113,7 +113,7 @@ Your images are grouped into objects. There are three steps to build a new objec
 
 The local dataset is hosted directly on the mobile device, and the recognition algorithms are also performed entirely locally. It is not possible at the moment for you to directly generate the image signatures that are necessary for recognition (this "local training" feature is coming soon!). To receive the iqedata folder that corresponds to your own set of images, first train VisionIQ server, and then contact us at <support@iqengines.com>. Once you have received the iqedata folder back, put it in the "assets" folder as shown in the example below.
 
-![center](http://img.skitch.com/20120816-bp7shu4915iaghutu167yqg4rr.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/assets.png)
 
 ### IQ Engines dataset and crowdsourcing
 
@@ -126,14 +126,14 @@ Our *barcode* engine is an user-friendly integration of the laser-fast open libr
 
 The *iqengines-sdk-barcode* project contains the source code. All the settings are in the *iqengines-sdk* project, in the *com.iqengines.sdk.barcode* package. In there, you can change the barcode formats you want to recognize or the way your app handle the results
 
-![center](http://img.skitch.com/20120816-gjyfncbsn8sngxh44fk84atawk.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/barcode_formats.png)
 
 Configure VisionIQ server
 -------------------------
 
 Crowdsourcing and *local* search are not required for every app. VisionIQ allows you to choose either *remote*, *local* or *barcode* search as well as any combination of the three. You may also choose in which dataset you want to perform the search. This flexibility is available through the [settings](http://www.iqengines.com/dashboard/settings/) on the developer dashboard.
 
-![center](http://img.skitch.com/20120815-k7ei9jp88km7a6fmrennmaniec.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/web_site_settings.png)
 
 For example, an app performing only remote search in the private dataset would have :
 
@@ -143,7 +143,7 @@ For example, an app performing only remote search in the private dataset would h
 	* **`SEARCH_OBJECT_LOCAL_CONTINUOUS`**=false;
 * In the dashboard settings
 
-![center](http://img.skitch.com/20120515-dunphgqy2mfrcqqud7kxs4ibis.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/private_dataset_settings.png)
 
 
 Tips for successful and fast search
@@ -173,7 +173,7 @@ To start using IQEngines SDK in your Android project, follow these steps:
 * In the **Properties** window, select the **Android** properties group at left and locate the **Library** window on the right.
 * Click Add to open the Project Selection dialog.
 
-![center](http://img.skitch.com/20120511-dwc7rj7rjy6ajjjpntbayyrghi.png)
+![center](http://github.com/iqengines/iqe-android-sdk/raw/master/README.images/android_library.png)
 
 * From the list of available library projects, select the **iqengines-sdk** project and click OK.
 * When the dialog closes, click Apply in the **Properties** window.
