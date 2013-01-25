@@ -15,7 +15,6 @@ import org.json.JSONObject;
 import com.iqengines.sdk.Barcode.BarcodeFormatManager;
 import com.iqengines.sdk.Barcode.BarcodeThread;
 import com.iqengines.sdk.Barcode.BarcodeHandler;
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.YuvImage;
 import android.os.Handler;
@@ -235,7 +234,6 @@ public class IQE extends Handler {
      */
     
     
-    @SuppressLint("NewApi")
 	private void initIqSdk(String remoteKey, String remoteSecret) {
     	
     	if (remoteSearch) {
@@ -678,7 +676,6 @@ public class IQE extends Handler {
      * @throws IllegalStateException
      */
     
-	@SuppressLint("NewApi")
 	public void searchWithImageLocal(File imgFile, int callType, YuvImage Image) {
 
         if (!localSearch && !barcodeSearch &&!remoteSearch) {
