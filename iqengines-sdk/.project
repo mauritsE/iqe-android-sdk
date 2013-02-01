@@ -3,6 +3,7 @@
 	<name>iqengines-sdk</name>
 	<comment></comment>
 	<projects>
+		<project>iqengines-sdk-Barcode</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

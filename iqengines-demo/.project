@@ -3,6 +3,7 @@
 	<name>iqengines-demo</name>
 	<comment></comment>
 	<projects>
+		<project>iqengines-sdk</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
