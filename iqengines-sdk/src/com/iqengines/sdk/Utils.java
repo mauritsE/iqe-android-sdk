@@ -87,10 +87,10 @@ public class Utils {
     	int w = origYuv.getWidth();
     	int h = origYuv.getHeight();
     	
-    	int left = (int)(targetSize >= w ? 0 : (float)( (w-targetSize)/2 ) );
-    	int right = (int)(targetSize >= w ? w : targetSize + (float)( (w-targetSize)/2 ) );
-    	int top = (int)(targetSize >= h ? 0 : (float)( (h-targetSize)/2 ) );
-    	int bottom = (int)(targetSize >= h ? h : targetSize + (float)( (w-targetSize)/2 ) );
+    	int left   = (int)(targetSize >= w ? 0 : (float)( (w-targetSize)/2 ) );
+    	int right  = (int)(targetSize >= w ? w : (float)( (w-targetSize)/2 ) + targetSize);
+    	int top    = (int)(targetSize >= h ? 0 : (float)( (h-targetSize)/2 ) );
+    	int bottom = (int)(targetSize >= h ? h : (float)( (h-targetSize)/2 ) + targetSize);
     	
     	File dir = ctx.getDir("snapshots", Context.MODE_PRIVATE);
         File of = new File(dir, "snapshot.jpg");
@@ -109,7 +109,6 @@ public class Utils {
         }
         
         return of;
-
     }    
   
    
