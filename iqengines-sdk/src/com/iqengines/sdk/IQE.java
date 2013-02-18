@@ -180,12 +180,12 @@ public class IQE extends Handler {
     
     private AtomicBoolean stopScanSearch = new AtomicBoolean(false);
 
-    private AtomicBoolean iqeRunning = new AtomicBoolean(false);
-
     private AtomicBoolean indexInitialized = new AtomicBoolean(false);
     
     private Object newIncomingRemoteMatchSemaphore = new Object();
-
+    
+    private RemoteResultUpdateThread remoteUpdateThread;
+    
     private Map<String, OnResultCallback> remoteQueryMap = Collections
             .synchronizedMap(new HashMap<String, IQE.OnResultCallback>());
             
@@ -749,11 +749,12 @@ public class IQE extends Handler {
      */
     
     
-    public void resume() {
-    	
-        iqeRunning.set(true);
-        if (remoteSearch) {
-        	new RemoteResultUpdateThread(this,"RemoteResultUpdateThread").start();
+    public void resume()
+    {
+        if (remoteSearch)
+        {
+        	remoteUpdateThread = new RemoteResultUpdateThread(this, "RemoteResultUpdateThread");
+        	remoteUpdateThread.start();
         }
     }
 
@@ -764,15 +765,18 @@ public class IQE extends Handler {
      */
     
     
-    public void pause() {
-    	
-        iqeRunning.set(false);
+    public void pause()
+    {
+    	if (remoteSearch)
+    	{
+    		remoteUpdateThread.stopThread();
+    		remoteUpdateThread = null;
+    	}
         goSnap();
         removeAllMessages();
         synchronized (newIncomingRemoteMatchSemaphore) {
             newIncomingRemoteMatchSemaphore.notifyAll();           
         }
-        
     }
     
     /**
@@ -817,9 +821,16 @@ public class IQE extends Handler {
     	
     	private IQE iqe;
     	
+        volatile private boolean run = true;
+        
     	public RemoteResultUpdateThread(IQE iqe, String string){
     		super(string);
     		this.iqe=iqe;
+    	}
+    	
+    	public synchronized void stopThread()
+    	{
+    		run = false;
     	}
     	
         @Override
@@ -827,7 +838,7 @@ public class IQE extends Handler {
         	
             JSONObject results = null;
 
-            while (iqeRunning.get()) {
+            while (run) {
                 synchronized (newIncomingRemoteMatchSemaphore) {
                     try {
                         newIncomingRemoteMatchSemaphore.wait(1000);
@@ -835,10 +846,9 @@ public class IQE extends Handler {
                         new RuntimeException(e);
                     }
                 }
-                if (!iqeRunning.get()) {
+                if (run == false)
                     break;
-                }
-
+                
                 try {
                     String resultStr = null;
                     resultStr = iqRemote.update(deviceId, true);
@@ -920,7 +930,6 @@ public class IQE extends Handler {
                     Log.e(TAG, "JSON error", e);
                 }
             }
-        
         }
     }
     
