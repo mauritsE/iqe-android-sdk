@@ -435,21 +435,29 @@ public class IQLocal implements IQLocalApi {
         out.mkdirs();
         copyFiles(am, new File(in, "copy.txt"), new File(out, "copy.txt"));
         copyFiles(am, new File(in, "objects.json"), new File(out, "objects.json"));
-        FileReader freader = new FileReader(new File(out.getPath() + "/copy.txt"));
-        BufferedReader reader = new BufferedReader(freader);
-        String line;
-        boolean dirs = true;
-        while ((line = reader.readLine()) != null) {
-        	if(line.compareToIgnoreCase("---FILES---") == 0){
-        		dirs = false;
-        		continue;
-        	}
-        	if(dirs){
-        		File direct = new File(out, line);
-            	direct.mkdirs();
-        	} else {
-        		copyFiles(am, new File(in + "/" + line), new File(out + "/" +  line));
-        	}
+        BufferedReader reader = null;
+        try
+        {
+            FileReader freader = new FileReader(new File(out.getPath() + "/copy.txt"));
+            reader = new BufferedReader(freader);
+            String line;
+            boolean dirs = true;
+            while ((line = reader.readLine()) != null) {
+        	    if(line.compareToIgnoreCase("---FILES---") == 0){
+        		    dirs = false;
+        		    continue;
+        	    }
+        	    if(dirs){
+        		    File direct = new File(out, line);
+            	    direct.mkdirs();
+        	    } else {
+        		    copyFiles(am, new File(in + "/" + line), new File(out + "/" +  line));
+        	    }
+            }
+        }
+        finally
+        {
+        	reader.close();
         }
 	}
     
