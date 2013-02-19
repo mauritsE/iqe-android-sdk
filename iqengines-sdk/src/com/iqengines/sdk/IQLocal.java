@@ -457,7 +457,8 @@ public class IQLocal implements IQLocalApi {
         }
         finally
         {
-        	reader.close();
+        	if (reader != null)
+        	    reader.close();
         }
 	}
     
